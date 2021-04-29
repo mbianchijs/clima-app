@@ -38,6 +38,24 @@ const menuPrincipal = async () => {
     return opciones;
 }
 
+// Simular pausa
+const pausar = async () => {   
+
+    const pregunta = [
+        {
+
+            type: "input",
+            name: "pausar",
+            message: `Presiones ${ 'Enter'.blue } para continuar`,
+        }
+    ];
+
+    const { pausar } = await inquirer.prompt(pregunta);
+
+    return pausar;
+}
+
 module.exports = {
-    menuPrincipal
+    menuPrincipal,
+    pausar
 }
