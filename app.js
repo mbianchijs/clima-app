@@ -9,8 +9,19 @@ const principal = async () => {
 
         opciones = await menuPrincipal();
 
+        switch (opciones) {
+            
+            case 1:
+                
+                break;
+            
+            case 2:
+                
+                break;
         
-        await pausar();
+        }
+
+        if (opciones !== 0) await pausar();
         
     } while (opciones !== 0) {
 
