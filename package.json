@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/mbianchijs/clima-app/issues"
   },
-  "homepage": "https://github.com/mbianchijs/clima-app#readme"
+  "homepage": "https://github.com/mbianchijs/clima-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
