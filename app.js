@@ -1,4 +1,4 @@
-const { menuPrincipal, pausar } = require("./helpers/inquirer");
+const { menuPrincipal, pausar, leerIngreso } = require("./helpers/inquirer");
 
 
 const principal = async () => {
@@ -12,6 +12,9 @@ const principal = async () => {
         switch (opciones) {
             
             case 1:
+                // Captura de la ciudad
+
+                const lugar = await leerIngreso("Lugar:");
                 
                 break;
             

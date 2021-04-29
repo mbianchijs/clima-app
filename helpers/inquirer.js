@@ -55,7 +55,32 @@ const pausar = async () => {
     return pausar;
 }
 
+// Captura la opción seleccionada
+const leerIngreso = async ( message ) => {
+
+    const pregunta = [
+        {
+            type: "input",
+            name: "ingreso",
+            message,
+            validate: function ( ingreso ) {
+                if( ingreso.length === 0 ) {
+                    return `${'Debe ingresar un valor'.red}`;
+                }
+
+                return true;
+            }
+        }
+    ]
+
+    const { ingreso } = await inquirer.prompt(pregunta);
+
+    return ingreso;
+
+}
+
 module.exports = {
     menuPrincipal,
-    pausar
+    pausar,
+    leerIngreso
 }
