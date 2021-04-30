@@ -1,6 +1,6 @@
 require('dotenv').config({ path: './config/.env' });
 
-const { menuPrincipal, pausar, leerIngreso } = require("./helpers/inquirer");
+const { menuPrincipal, pausar, leerIngreso, listarLugares } = require("./helpers/inquirer");
 const Busquedas = require('./models/busquedas');
 
 const principal = async () => {
@@ -15,11 +15,16 @@ const principal = async () => {
         switch (opciones) {
             
             case 1:
-                // Captura de la ciudad
+                // Capta lugar a buscar
                 const lugar = await leerIngreso("Lugar:");
 
+                // Busca coincidencias según lugar ingresado
                 const lugares = await busquedas.ciudad(lugar);
-                console.log(lugares);
+
+                // Imprime listado y devuelve ID seleccionado
+                const idLugar = await listarLugares(lugares);
+                
+                console.log(idLugar);
                 
                 break;
             

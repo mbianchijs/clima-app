@@ -79,8 +79,38 @@ const leerIngreso = async ( message ) => {
 
 }
 
+// Lista los lugares según criterio de búsqueda
+const listarLugares = async ( lugares = [] ) => {
+
+    const choices = lugares.map(( lugar, index ) => {
+
+        const indice = `${ index + 1 }.`.green;
+
+        return {
+            value: lugar.id,
+            name: `${ indice } ${ lugar.nombre }`
+        }
+        
+    });
+
+    const preguntas = [
+        {
+            type: "list",
+            name: "id",
+            message: "Seleccione lugar",
+            choices
+        }
+    ];
+
+    const { id } = await inquirer.prompt(preguntas);
+
+    return id;
+
+}
+
 module.exports = {
     menuPrincipal,
     pausar,
-    leerIngreso
+    leerIngreso,
+    listarLugares
 }
