@@ -8,7 +8,18 @@ class Busquedas {
 
     async ciudad( lugar = '' ) {
 
-        return lugar;
+        try {
+            
+            const res = await axios.get('');
+
+            return [];
+
+        } catch (error) {
+            return [];
+        }
+
+
+        return res.data;
 
     }
 
