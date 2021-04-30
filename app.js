@@ -23,8 +23,15 @@ const principal = async () => {
 
                 // Imprime listado y devuelve ID seleccionado
                 const idLugar = await listarLugares(lugares);
-                
-                console.log(idLugar);
+
+                // Recuperada data según id lugar
+                const seleccionado = lugares.find( lugar => lugar.id === idLugar );
+
+                // Imprime resultados
+                console.log('\nInformación del lugar seleccionado:\n'.green);
+                console.log('Lugar/Ciudad:'.cyan, seleccionado.nombre);
+                console.log('Logitud:'.cyan, seleccionado.longitud);
+                console.log('Latitud:'.cyan, seleccionado.latitud);
                 
                 break;
             
@@ -33,6 +40,8 @@ const principal = async () => {
                 break;
         
         }
+
+        console.log();
 
         if (opciones !== 0) await pausar();
         
