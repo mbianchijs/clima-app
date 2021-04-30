@@ -9,7 +9,7 @@ class Busquedas {
     get urlParams() {
 
         return {
-            'access_token': 'pk.eyJ1IjoibWJpYW5jaGlqcyIsImEiOiJja28zbzlodHQwYnk4Mm9vbnN2cW1ocTd0In0.hZYOBgCbi5buoXTO06gOrQ',
+            'access_token': process.env.MAPBOX_KEY,
             'limit': 7,
             'language': 'es'
         }
