@@ -6,12 +6,22 @@ class Busquedas {
 
     }
 
-    get urlParams() {
+    get urlParamsMapbox() {
 
         return {
             'access_token': process.env.MAPBOX_KEY,
             'limit': 7,
             'language': 'es'
+        }
+
+    }
+
+    get urlParamsOW() {
+
+        return {
+            'appid': process.env.OW_KEY,
+            'units': 'metric',
+            'lang': 'es'
         }
 
     }
@@ -22,7 +32,7 @@ class Busquedas {
             
             const instancia = axios.create({
                 baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${ lugar }.json`,
-                params: this.urlParams
+                params: this.urlParamsMapbox
 
             })
 
@@ -40,8 +50,33 @@ class Busquedas {
             return [];
         }
 
+    }
 
-        return res.data;
+    async climaCiudadLugar( lat, lon ) {
+
+        try {
+            
+            const instancia = axios.create({
+                baseURL: `https://api.openweathermap.org/data/2.5/weather`,
+                params: { ...this.urlParamsOW, lat, lon},
+
+            })
+
+            const res = await instancia.get();
+            const { weather, main } = res.data;
+
+            return  {
+                estado: weather[0].description,
+                temperatura: main.temp,
+                minima: main.temp_min,
+                maxima: main.temp_max,
+                humedad: main.humidity,
+            }
+
+        } catch (error) {
+
+            return [];
+        }
 
     }
 
