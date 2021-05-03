@@ -48,7 +48,8 @@ const principal = async () => {
                 break;
             
             case 2:
-
+                
+                // De haber historial, lo imprime
                 if(busquedas._historial.length > 0) {
 
                     busquedas.capitalizado.forEach((registro, index) => {
@@ -60,6 +61,7 @@ const principal = async () => {
                 } else {
                     console.log("¡No hay historial para mostrar!".yellow);
                 }
+                
                 break;
         
         }
