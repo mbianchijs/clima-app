@@ -1,8 +1,14 @@
 const axios = require('axios');
+const { leerHistorialDB, insertHistorialDB } = require('../helpers/tratarArchivo');
+
 
 class Busquedas {
 
+    _historial = [];
+
     constructor() {
+
+        leerHistorialDB();
 
     }
 
@@ -78,6 +84,20 @@ class Busquedas {
             return [];
         }
 
+    }
+
+    guardarHistorial( lugar = '' ) {
+
+        const obj = {
+            
+            lugar: lugar.toLowerCase(),
+            ultimaConsulta: new Date()
+
+        }
+
+        this._historial.unshift(obj);
+
+        insertHistorialDB(this._historial);
     }
 
 }

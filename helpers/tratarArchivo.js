@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = './db/historial.json';
 
-const insertHistorialDB = ( registro ) => {
+const insertHistorialDB = ( registros ) => {
 
-    fs.writeFileSync(path, JSON.stringify(registro));
+    fs.writeFileSync(path, JSON.stringify(registros));
 
 }
 

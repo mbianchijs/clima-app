@@ -41,6 +41,9 @@ const principal = async () => {
                 console.log('Máxima:'.cyan, clima.maxima);
                 console.log('Humedad:'.cyan, clima.humedad);
                 console.log('Estado del clima:'.cyan, clima.estado);
+
+                // Guarda el historial de búsqueda
+                busquedas.guardarHistorial( seleccionado.nombre );
                 
                 break;
             
