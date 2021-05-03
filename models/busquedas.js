@@ -11,7 +11,7 @@ class Busquedas {
         this.leerHistorial();
 
     }
-
+    
     get urlParamsMapbox() {
 
         return {
@@ -29,6 +29,22 @@ class Busquedas {
             'units': 'metric',
             'lang': 'es'
         }
+
+    }
+
+    get capitalizado() {
+
+        return this._historial.map( registro => {
+            let palabras = registro.lugar.split(" ");
+            palabras = palabras.map(palabra => palabra[0].toUpperCase() + palabra.substring(1));
+            return (
+                {
+                    lugar: palabras.join(' '),
+                    ultimaConsulta: registro.ultimaConsulta
+
+                }
+            );
+        } )
 
     }
 
@@ -103,7 +119,7 @@ class Busquedas {
     leerHistorial() {
 
         const data = leerHistorialDB();
-        this._historial = data;
+        if (data) this._historial = data;
     }
 
 }

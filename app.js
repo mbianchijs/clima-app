@@ -48,7 +48,18 @@ const principal = async () => {
                 break;
             
             case 2:
-                
+
+                if(busquedas._historial.length > 0) {
+
+                    busquedas.capitalizado.forEach((registro, index) => {
+                        
+                        const indice = `${ index + 1 }.`.green;
+                        console.log(`${ indice } ${ registro.lugar } (${ registro.ultimaConsulta })`);
+                        
+                    });
+                } else {
+                    console.log("¡No hay historial para mostrar!".yellow);
+                }
                 break;
         
         }
