@@ -8,7 +8,7 @@ class Busquedas {
 
     constructor() {
 
-        leerHistorialDB();
+        this.leerHistorial();
 
     }
 
@@ -98,6 +98,12 @@ class Busquedas {
         this._historial.unshift(obj);
 
         insertHistorialDB(this._historial);
+    }
+
+    leerHistorial() {
+
+        const data = leerHistorialDB();
+        this._historial = data;
     }
 
 }
